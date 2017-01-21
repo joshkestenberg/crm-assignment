@@ -19,6 +19,7 @@ class Contact
     @email = email
     @note = note
     @@next_id += 1
+    self.display
   end
 
   # This method should call the initializer,
@@ -65,20 +66,30 @@ class Contact
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
   def self.find_by(attribute, value)
     @@contacts.each do |contact|
-      if attribute == "id" && contact.id == value
-        return contact
-      elsif attribute == "first name" && contact.first_name == value
-        return contact
-      elsif attribute == "last name" && contact.first_name == value
-        return contact
-      elsif attribute == "email" && contact.email == value
-        return contact
-      elsif attribute == "note" && contact.note == value
-        return contact
-      end
+      case attribute
+        when "id"
+          if contact.id == value
+            return contact
+          end
+        when "first name"
+          if contact.first_name == value
+            return contact
+          end
+          when "last name"
+            if contact.last_name == value
+              return contact
+            end
+          when"email"
+            if contact.email == value
+              return contact
+            end
+          when "note"
+            if contact.note == value
+              return contact
+            end
+        end
     end
-    return nil
-  end
+  en d
 
   # This method should delete all of the contacts
   def self.delete_all
@@ -96,8 +107,9 @@ class Contact
   end
 
   # Feel free to add other methods here, if you need them.
+  def display
+    puts "contact info:\n id: #{@id}\n first name: #{@first_name}\n last name: #{@last_name}\n email: #{@email}\n note: #{@note}"
+  end
+
 
 end
-
-$josh = Contact.create("josh", "kestenberg", "fakeemail", "dude.")
-$dave = Contact.create("dave", "farts", "fakeemail2", "also dude.")

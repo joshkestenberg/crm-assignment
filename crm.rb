@@ -69,29 +69,68 @@ class CRM
     if selection == 1
       puts "enter mod"
       contact.update("first name", attribute = gets.chomp)
+      contact.display
     elsif selection == 2
       puts "enter mod"
       contact.update("last name", attribute = gets.chomp)
+      contact.display
     elsif selection == 3
       puts "enter mod"
       contact.update("email", attribute = gets.chomp)
+      contact.display
     elsif selection == 4
       puts "enter mod"
       contact.update("note", attribute = gets.chomp)
+      contact.display
     end
   end
 
   def delete_contact
-
+    puts 'provide contact id'
+    contact_id = gets.to_i
+    contact = Contact.find(contact_id)
+    contact.delete
+    puts "contact removed"
   end
 
   def display_all_contacts
-
+    Contact.all.each do |contact|
+      contact.display
+    end
   end
 
   def search_by_attribute
-
+    puts '[1] Search by id'
+    puts '[2] Search by First Name'
+    puts '[3] Search by Last Name'
+    puts '[4] Search by Email'
+    puts '[5] Search by Note'
+    puts 'enter a number'
+    attribute = gets.to_i
+    if attribute == 1
+      puts "enter querie"
+      contact = Contact.find_by("id", value = gets.to_i)
+      contact.display
+    elsif attribute == 2
+      puts "enter querie"
+      contact = Contact.find_by("first name", value = gets)
+      contact.display
+    elsif attribute == 3
+      puts "enter querie"
+      contact = Contact.find_by("last name", value = gets)
+      contact.display
+    elsif attribute == 4
+      puts "enter querie"
+      contact = Contact.find_by("email", value = gets)
+      contact.display
+    elsif attribute == 5
+      puts "enter querie"
+      contact = Contact.find_by("note", value = gets)
+      contact.display
+    end
   end
 
 
 end
+
+CRM.new
