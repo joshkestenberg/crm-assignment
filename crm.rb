@@ -109,28 +109,28 @@ class CRM
     attribute = gets.to_i
     if attribute == 1
       puts "enter querie"
-      contact = Contact.find_by("id", value = gets.to_i)
+      contact = Contact.find_by("id", value = gets.chomp.to_i)
       contact.display
     elsif attribute == 2
       puts "enter querie"
-      contact = Contact.find_by("first name", value = gets)
+      contact = Contact.find_by("first name", value = gets.chomp)
       contact.display
     elsif attribute == 3
       puts "enter querie"
-      contact = Contact.find_by("last name", value = gets)
+      contact = Contact.find_by("last name", value = gets.chomp)
       contact.display
     elsif attribute == 4
       puts "enter querie"
-      contact = Contact.find_by("email", value = gets)
+      contact = Contact.find_by("email", value = gets.chomp)
       contact.display
     elsif attribute == 5
       puts "enter querie"
-      contact = Contact.find_by("note", value = gets)
+      contact = Contact.find_by("note", value = gets.chomp)
       contact.display
     end
   end
 
 
-end
+ end
 
 CRM.new
