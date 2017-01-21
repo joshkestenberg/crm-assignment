@@ -89,7 +89,7 @@ class Contact
             end
         end
     end
-  en d
+  end
 
   # This method should delete all of the contacts
   def self.delete_all
