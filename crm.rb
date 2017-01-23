@@ -1,4 +1,5 @@
 require './contact.rb'
+require 'pry.rb'
 
 class CRM
 
@@ -68,11 +69,11 @@ class CRM
     selection = gets.to_i
     if selection == 1
       puts "enter mod"
-      contact.update("first name", attribute = gets.chomp)
+      contact.update("first_name", attribute = gets.chomp)
       contact.display
     elsif selection == 2
       puts "enter mod"
-      contact.update("last name", attribute = gets.chomp)
+      contact.update("last_name", attribute = gets.chomp)
       contact.display
     elsif selection == 3
       puts "enter mod"
@@ -113,11 +114,11 @@ class CRM
       contact.display
     elsif attribute == 2
       puts "enter querie"
-      contact = Contact.find_by("first name", value = gets.chomp)
+      contact = Contact.find_by("first_name", value = gets.chomp)
       contact.display
     elsif attribute == 3
       puts "enter querie"
-      contact = Contact.find_by("last name", value = gets.chomp)
+      contact = Contact.find_by("last_name", value = gets.chomp)
       contact.display
     elsif attribute == 4
       puts "enter querie"

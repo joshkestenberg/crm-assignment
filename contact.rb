@@ -1,3 +1,5 @@
+
+
 class Contact
 
   attr_accessor :first_name, :last_name, :email, :note
@@ -45,10 +47,10 @@ class Contact
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
   def update(attribute, edited)
-    if attribute == "first name"
+    if attribute == "first_name"
       @new_first_name = edited
       @first_name = (@new_first_name)
-    elsif attribute == "first name"
+    elsif attribute == "last_name"
       @new_last_name = edited
       @last_name = (@new_last_name)
     elsif attribute == "email"
@@ -56,7 +58,7 @@ class Contact
       @email = (@new_email)
     elsif attribute == "note"
       @new_note = edited
-      @note=(@new_note)
+      @note = (@new_note)
     end
   end
 
@@ -71,22 +73,22 @@ class Contact
           if contact.id == value
             return contact
           end
-        when "first name"
+        when "first_name"
           if contact.first_name == value
             return contact
           end
-          when "last name"
-            if contact.last_name == value
-              return contact
-            end
-          when"email"
-            if contact.email == value
-              return contact
-            end
-          when "note"
-            if contact.note == value
-              return contact
-            end
+        when "last_name"
+          if contact.last_name == value
+            return contact
+          end
+        when"email"
+          if contact.email == value
+            return contact
+          end
+        when "note"
+          if contact.note == value
+            return contact
+          end
         end
     end
   end
